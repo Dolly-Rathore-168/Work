@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "freight big pro", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Main Container */
+#main {
+    background-color: #000;
+}
+
+/* Loader */
+#loader {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(249, 169, 40);
+    position: fixed;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    text-align: center;
+}
+
+#loader h1 {
+    font-size: 6.9vw;
+    font-weight: 100;
+    line-height: 5vw;
+    position: relative;
+    z-index: 9;
+    letter-spacing: -3px;
+}
+
+#loader video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 6;
+}
+
+#yellow1, #yellow2 {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #F5E41B;
+    z-index: 7;
+}
+
+/* Navigation */
+#nav {
+    position: absolute;
+    width: 12%;
+    background-color: rgba(178, 40, 10, 0.9);
+    padding: 12px;
+    z-index: 6;
+}
+
+#nav svg path {
+    fill: #000;
+}
+
+/* Page 1 */
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5E41B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#page1 h1 {
+    font-size: 7vw;
+    font-weight: 100;
+    line-height: 5vw;
+    letter-spacing: -2px;
+}
+
+/* Page 2 */
+#page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* Elements */
+.elem {
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+}
+
+.elem .blur {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #F5E41B, #f5d91b, #F5B41B);
+    box-shadow: 10px 0px 10px 20px #F5E41B, -10px 0px 10px 20px #F5E41B;
+    height: auto;
+    z-index: 8;
+}
+
+.elem h2 {
+    font-size: 4vw;
+    line-height: 2vw;
+    text-transform: uppercase;
+    font-weight: 100;
+    transition: all ease 0.2s;
+    font-style: normal;
+    position: relative;
+    z-index: 9;
+}
+
+/* Moving Text Animation */
+.elem .moving {
+    background-color: lightblue;
+    width: 100%;
+    white-space: nowrap;
+    padding: 8px 0;
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    transform: scaleY(0);
+}
+
+.elem .moving .moving-in {
+    background-color: seagreen;
+    display: inline-block;
+    white-space: nowrap;
+    animation: moving 15s linear infinite alternate;
+}
+
+.elem .moving .moving-in h5 {
+    color: black;
+    display: inline-block;
+    font-size: 20px;
+    opacity: 0;
+    transition: all ease 0.5s;
+    transition-delay: 0.5s;
+    font-weight: 400;
+    font-family: gilroy, sans-serif;
+    text-transform: uppercase;
+    margin-right: 35px;
+}
+
+/* Animation */
+@keyframes moving {
+    from {
+        transform: translate(0);
+    }
+    to {
+        transform: translate(-100%);
+    }
+}
+
+/* Hover Effects */
+.elem:hover .moving {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.elem:hover .moving h5 {
+    opacity: 1;
+}
+
+.elem:hover h2 {
+    font-style: italic;
+}
+
+/* Page 3 */
+#page3 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #FFF;
+}
+
+/* Image Container */
+.image-container {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Image Box */
+.image-div {
+    height: 40vw;
+    width: 30vw;
+    background-color: red;
+    position: relative;
+    overflow: hidden; /* Prevents content from overflowing */
+}
+
+.image-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+/* Overlay */
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3); /* Darker overlay for better readability */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease-in-out;
+    z-index: 9;
+}
+
+/* Overlay Text */
+.overlay p {
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    line-height: 2.5vw;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+/* Hover Effect */
+.image-div:hover .overlay {
+    background-color: rgba(242, 234, 234, 0.5);
+    transition: all ease 0.5s;
+
+}
+.image-div:hover .overlay  p{
+    opacity: 1;
+    
+}
+.image-div:hover img{
+    scale: 01.1;
+
+}
